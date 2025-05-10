@@ -1,4 +1,5 @@
 require('dotenv').config()
+const PORT = process.env.PORT || 3000;
 
 const express = require("express");
 const request = require("request");
@@ -9,7 +10,7 @@ app.use(cors());
 
 app.get("/proxy", (req, res) => {
     const symbol = req.query.symbol || "BANKNIFTY";
-    const ssid = req.query.nsit || process.env.NSIT;
+    const nsit = req.query.nsit || process.env.NSIT;
     const nseappid = req.query.nseappid || process.env.NSEAPPID;
 
     const url = `https://www.nseindia.com/api/option-chain-indices?symbol=${symbol}`;
@@ -32,4 +33,6 @@ app.get("/proxy", (req, res) => {
 app.get("/", (req, res) => {
     res.send("Hello World");
 })
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 module.exports = app;
