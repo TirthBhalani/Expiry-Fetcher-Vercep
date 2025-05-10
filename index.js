@@ -20,7 +20,7 @@ app.get("/proxy", (req, res) => {
             headers: {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
                 "Referer": "https://www.nseindia.com/",
-                "Cookie": `ssid=${nsit}; nseappid=${nseappid}`
+                "Cookie": `nsit=${nsit}; nseappid=${nseappid}`
             }
         },
         (error, response, body) => {
@@ -29,5 +29,7 @@ app.get("/proxy", (req, res) => {
         }
     );
 });
-
+app.get("/", (req, res) => {
+    res.send("Hello World");
+})
 module.exports = app;
