@@ -16,6 +16,7 @@
     "express": "^5.1.0",
     "https-proxy-agent": "^7.0.6",
     "puppeteer": "^24.8.2",
+    "puppeteer-core": "^24.8.2",
     "request": "^2.88.2"
   }
 }
